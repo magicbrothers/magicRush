@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MLG-Rush.jar">
+    <output-path>$USER_HOME$/mcserver/plugins</output-path>
+    <root id="archive" name="MLG-Rush.jar">
+      <element id="module-output" name="MLG-Rush" />
+      <element id="file-copy" path="$PROJECT_DIR$/config.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+    </root>
+  </artifact>
+</component>

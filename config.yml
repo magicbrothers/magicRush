@@ -1,0 +1,10 @@
+copyDefaults: true
+messages:
+  prefix: "§3MLGRush§8 | "
+  no_permission: "§cDazu hast du keine Rechte! Falls das ein Fehler ist, melde dich im Support oder bei einem Owner."
+  tp_to_mlgrush_lobby: "§7Du befindest dich nun in der MLGRush Lobby."
+  challenge: "§aDu hast §6%player%§a herausgefordert."
+  challenged: "§aDu wurdest von §6%player%§a herausgefordert."
+  challenge_accept: "§aDu hast die Herausforderung von §6%player%§a angenommen."
+  challenge_accepted: "§6%player%§a hat deine Herausforderung angenommen."
+  game_starts: "§aDie Runde beginnt!"

@@ -1,0 +1,9 @@
+main: de.magicbrothers.mlgrush.main.Main
+name: magicRush
+version: 1.0
+author: magicbrothers
+description: MLG-Rush Plugin, programmiert von magicbrothers für xFxbiiYT und PartySystem
+prefix: magicRush
+
+commands:
+  magicrush:
