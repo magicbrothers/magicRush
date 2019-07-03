@@ -32,7 +32,7 @@ public class ChallengeListener implements Listener {
 
             HashMap<String, String> challengedPlayers = Main.getPlugin().getChallengePlayers();
 
-            if(challengedPlayers.get(pother.getName()).equals(p.getName())) { // wurde p schon von pother herausgefordert?
+            if(challengedPlayers.containsKey(pother.getName()) && challengedPlayers.get(pother.getName()).equals(p.getName())) { // wurde p schon von pother herausgefordert?
                 p.sendMessage(Main.PREFIX + Message.getMessage("challenge_accept", "%player%", pother.getDisplayName()));
                 pother.sendMessage(Main.PREFIX + Message.getMessage("challenge_accepted", "%player%", p.getDisplayName()));
                 int game = Game.getNewArena();

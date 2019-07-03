@@ -1,11 +1,16 @@
 package de.magicbrothers.mlgrush.games;
 
 import de.magicbrothers.mlgrush.main.Main;
+import de.magicbrothers.mlgrush.stuff.Locations;
 import de.magicbrothers.mlgrush.stuff.Message;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.configuration.Configuration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +18,7 @@ import java.util.List;
 public class Game {
 
     private static ArrayList<Integer> arenas = new ArrayList<>();
-    public static ArrayList<Game> games = new ArrayList<>();
+    private static ArrayList<Game> games = new ArrayList<>();
     private String[] players;
     private int arena;
 
@@ -49,7 +54,6 @@ public class Game {
     public static int getNewArena() {
 
         List<Integer> active = cfg.getIntegerList("games.activated");
-        Bukkit.broadcastMessage(active.toString());
         int arena = -1;
 
         for(int i : active) {
@@ -64,22 +68,34 @@ public class Game {
 
     }
 
-    public void tpToSpawn(String player) {
+    public void tpToSpawn(String p) {
 
         int pnumber = 0;
-        if(players[1].equals(player)) { pnumber = 1; }
+        if(players[1].equals(p)) pnumber = 1;
 
-        String world = cfg.getString("games." + arena + pnumber + ".world");
-        double x = cfg.getDouble("games." + arena + pnumber + ".x");
-        double y = cfg.getDouble("games." + arena + pnumber + ".y");
-        double z = cfg.getDouble("games." + arena + pnumber + ".z");
-        float yaw = (float) cfg.getDouble("games." + arena + pnumber + ".yaw");
-        float  pitch = (float) cfg.getDouble("games." + arena + pnumber + ".pitch");
+        Location loc = Locations.getLocation("games." + arena, "spawn" + (pnumber + 1));
+        Player player = Bukkit.getPlayer(p);
 
-        Location loc = new Location(Bukkit.getWorld(world), x, y, z, yaw, pitch);
-        Player p = Bukkit.getPlayer(players[0]);
+        player.teleport(loc);
+        fillInventory(p);
 
-        p.teleport(loc);
+    }
+
+    public void fillInventory(String p) {
+
+        Player player = Bukkit.getPlayer(p);
+
+        ItemStack stick = new ItemStack(Material.STICK);
+        ItemStack pickaxe = new ItemStack(Material.STONE_PICKAXE);
+        ItemStack blocks = new ItemStack(Material.SANDSTONE, 32);
+
+        ItemMeta stickMeta = stick.getItemMeta();
+        stickMeta.addEnchant(Enchantment.KNOCKBACK, 1, true);
+        stick.setItemMeta(stickMeta);
+
+        player.getInventory().setItem(0, stick);
+        player.getInventory().setItem(1, pickaxe);
+        player.getInventory().setItem(8, blocks);
 
     }
 
@@ -89,5 +105,9 @@ public class Game {
 
     public int getArena() {
         return arena;
+    }
+
+    public static ArrayList<Game> getGames() {
+        return games;
     }
 }

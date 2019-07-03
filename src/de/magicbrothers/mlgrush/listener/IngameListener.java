@@ -24,7 +24,7 @@ public class IngameListener implements Listener {
 
             p.setFallDistance(0);
             p.setHealth(20);
-            p.setSaturation(20);
+            p.setFoodLevel(20);
 
             Configuration cfg = Main.getPlugin().getConfig();
             Game game = games.get(p.getName());
