@@ -23,9 +23,7 @@ public class Locations {
         float yaw = (float) cfg.getDouble(path + "." + name + ".yaw");
         float  pitch = (float) cfg.getDouble(path + "." + name + ".pitch");
 
-        Location loc = new Location(Bukkit.getWorld(world), x, y, z, yaw, pitch);
-
-        return loc;
+        return new Location(Bukkit.getWorld(world), x, y, z, yaw, pitch);
     }
 
     public static void setLocation(String path, String name, String world, double x, double y, double z, float yaw, float pitch) {

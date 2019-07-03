@@ -41,6 +41,8 @@ public class ChallengeListener implements Listener {
                     String[] ps = {p.getName(), pother.getName()};
                     Game arena = new Game(ps, game);
                     arena.play();
+                } else {
+                    p.sendMessage(Main.PREFIX + Message.getMessage("no_arena_available"));
                 }
 
             } else {

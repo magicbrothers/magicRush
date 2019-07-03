@@ -54,6 +54,12 @@ public class magicrushCommand implements CommandExecutor {
                         cfg.set("games.activated", activated);
                         Main.getPlugin().saveConfig();
 
+                    } else if(args[0].equals("setheight") && args.length == 2) {
+
+                        cfg.set("games." + Integer.parseInt(args[1]) + ".height", p.getLocation().getBlockY());
+                        Main.getPlugin().saveConfig();
+                        p.sendMessage(Main.PREFIX + "§aDu hast erfolgreich die Höhe für Arena §6" + args[1] + "§a gesetzt.");
+
                     }
                 } else {
                     p.sendMessage(Main.PREFIX + "§cBitte gib weitere Argumente an.");

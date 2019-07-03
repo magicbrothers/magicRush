@@ -1,4 +1,3 @@
-copyDefaults: true
 messages:
   prefix: "§3MLGRush§8 | "
   no_permission: "§cDazu hast du keine Rechte! Falls das ein Fehler ist, melde dich im Support oder bei einem Owner."
@@ -7,4 +6,8 @@ messages:
   challenged: "§aDu wurdest von §6%player%§a herausgefordert."
   challenge_accept: "§aDu hast die Herausforderung von §6%player%§a angenommen."
   challenge_accepted: "§6%player%§a hat deine Herausforderung angenommen."
+  no_arena_available: "§cEs wurde keine freie Arena gefunden!"
   game_starts: "§aDie Runde beginnt!"
+  bed_destroyed: "§7Das Bett von §6%loser%§7 wurde von §6%destroyer%§7 abgebaut!"
+  new_score: "§7Neuer Punktestand: %p1% : %p2%"
+  quit_game: "§6%player%§7 hat das Spiel verlassen. Punktestand: %p1% : %p2%"

@@ -5,6 +5,7 @@ import de.magicbrothers.mlgrush.games.Game;
 import de.magicbrothers.mlgrush.listener.ChallengeListener;
 import de.magicbrothers.mlgrush.listener.IngameListener;
 import de.magicbrothers.mlgrush.listener.JoinListener;
+import de.magicbrothers.mlgrush.listener.LeaveListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -42,20 +43,14 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new JoinListener(), plugin);
         pm.registerEvents(new ChallengeListener(), plugin);
         pm.registerEvents(new IngameListener(), plugin);
+        pm.registerEvents(new LeaveListener(), plugin);
 
     }
 
     private void loadConfig() {
-        boolean copyDefaults = true;
-        if(getConfig().contains("copyDefaults")) {
-            copyDefaults = getConfig().getBoolean("copyDefaults");
-        }
-
-        if(copyDefaults) {
-            getConfig().options().copyDefaults(true);
-            getConfig().options().copyDefaults();
-            saveConfig();
-        }
+        getConfig().options().copyDefaults(true);
+        getConfig().options().copyDefaults();
+        saveConfig();
     }
 
     public static Main getPlugin() {
@@ -101,6 +96,10 @@ public class Main extends JavaPlugin {
 
     public void removeRushPlayer(String p) {
         mlgRushPlayers.remove(p);
+        playerGames.remove(p);
+    }
+
+    public void removePlayerGame(String p) {
         playerGames.remove(p);
     }
 
