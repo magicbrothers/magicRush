@@ -60,6 +60,17 @@ public class magicrushCommand implements CommandExecutor {
                         Main.getPlugin().saveConfig();
                         p.sendMessage(Main.PREFIX + "§aDu hast erfolgreich die Höhe für Arena §6" + args[1] + "§a gesetzt.");
 
+                    } else if(args[0].equals("help")) {
+
+                        p.sendMessage(Main.PREFIX + "§aConfig reloaden: /magicrush reload");
+                        p.sendMessage(Main.PREFIX + "§aLobbyLocation setzen: /magicrush setloc lobby");
+                        p.sendMessage(Main.PREFIX + "§aGame-Location setzen: /magicrush setloc <arena-id> <name z.B spawn1>");
+                        p.sendMessage(Main.PREFIX + "§aNeues Spiel / neue Arena erstellen:");
+                        p.sendMessage(Main.PREFIX + "§a1. Spiel hinzufügen :/magicrush addgame <Name>");
+                        p.sendMessage(Main.PREFIX + "§a2. Spawnpunkte setzen: /magicrush setloc <arena-id> spawn1, /magicrush setloc <arena-id> spawn2");
+                        p.sendMessage(Main.PREFIX + "§a3. \"Todeshöhe\" setzen: /magicrush setheight <arena-id>");
+                        p.sendMessage(Main.PREFIX + "§a4. Spiel aktivieren: /magicrush activate <arena-id>");
+
                     }
                 } else {
                     p.sendMessage(Main.PREFIX + "§cBitte gib weitere Argumente an.");

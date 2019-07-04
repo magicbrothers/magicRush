@@ -1,5 +1,6 @@
 package de.magicbrothers.mlgrush.games;
 
+import de.magicbrothers.mlgrush.listener.JoinListener;
 import de.magicbrothers.mlgrush.main.Main;
 import de.magicbrothers.mlgrush.stuff.Locations;
 import de.magicbrothers.mlgrush.stuff.Message;
@@ -168,8 +169,11 @@ public class Game {
         Main.getPlugin().removeRushPlayer(players[1]);
         String[] search = {"%player%", "%p1%", "%p2%"};
         String[] replace = {name, points[0] + "", points[1] + ""};
+        Player p = Bukkit.getPlayer(players[(getPlayerNumber(name) - 2) * (-1)]);
 
-        Bukkit.getPlayer(players[(getPlayerNumber(name) - 2) * (-1)]).sendMessage(Main.PREFIX + Message.getMessage("quit_game", search, replace));
+        p.teleport(Locations.getLocation("locations", "lobby"));
+        JoinListener.joinLobby(p);
+        p.sendMessage(Main.PREFIX + Message.getMessage("quit_game", search, replace));
     }
 
 }
