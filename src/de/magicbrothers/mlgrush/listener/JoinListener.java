@@ -30,7 +30,7 @@ public class JoinListener implements Listener {
             if(sign.getLine(0).contains("MLGRush")) {
                 joinLobby(p);
                 p.sendMessage(Main.PREFIX + Message.getMessage("tp_to_mlgrush_lobby"));
-                p.sendMessage(Main.PREFIX + "§1Plugin by magicbrothers");
+                p.sendMessage(Main.PREFIX + "§1Plugin by magicbrothers.");
             }
 
         }
