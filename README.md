@@ -1,5 +1,7 @@
 # MLG-Rush
-MLG-Rush Plugin für PartySystem und xFxbiiYT
+
+# THIS REPOSITORY HAS A NEW HOME ON [Codeberg](https://codeberg.org/magicfelix/magicRush)
+# PLEASE USE THE NEW VERSION ON CODEBERG.
 
 MLG-Rush Plugin for single Spigot-/Bukkit-Server. (No bungeecord needed, but can also be used with)
 
